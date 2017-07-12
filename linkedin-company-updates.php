@@ -3,10 +3,11 @@
 Plugin Name: LinkedIn Company Updates 
 Plugin URI:  http://www.rockwellgrowth.com/linkedin-company-updates/
 Description: Get your company's recent updates with PHP or [shortcodes]
-Version:     1.5
+Version:     1.5.3
 Author:      Andrew Rockwell
 Author URI:  http://www.rockwellgrowth.com/
-Text Domain: linkedin-company-updates
+Text Domain: company-updates-for-linkedin
+Domain Path: /lang
 License:     GPL2v2
  
 LinkedIn Company Updates is free software: you can redistribute it and/or modify
@@ -37,7 +38,7 @@ if ( ! class_exists( 'Linkedin_Company_Updates' ) ) {
 		protected $admin_url     = '';
 		protected $token_life    = 0;
 		protected $tag           = 'linkedin_company_updates';
-		protected $version       = '1.5';
+		protected $version       = '1.5.3';
 		protected $options       = array();
 		protected $meta_boxes    = array();
 
@@ -69,32 +70,32 @@ if ( ! class_exists( 'Linkedin_Company_Updates' ) ) {
 
 					'config' => array(
 
-						'title' => __('Config') . $help_image,
+						'title' => __('Config', 'company-updates-for-linkedin') . $help_image,
 
 						'settings' => array(
 
 							// Linkedin setup
 							'client-id' => array(
 								'type'        => 'text',
-								'title'       => __( 'Client ID', 'linkedin-company-updates' ),
-								'description' => __( 'Your LinkedIn App Client ID.', 'linkedin-company-updates' ),
-								'placeholder' => __( 'Client ID', 'linkedin-company-updates' )
+								'title'       => __( 'Client ID', 'company-updates-for-linkedin' ),
+								'description' => __( 'Your LinkedIn App Client ID.', 'company-updates-for-linkedin' ),
+								'placeholder' => __( 'Client ID', 'company-updates-for-linkedin' )
 							),
 							'client-secret' => array(
 								'type'        => 'text',
-								'title'       => __( 'Client Secret', 'linkedin-company-updates' ),
-								'description' => __( 'Your LinkedIn App Client Secret.', 'linkedin-company-updates' ),
-								'placeholder' => __( 'Client Secret', 'linkedin-company-updates' )
+								'title'       => __( 'Client Secret', 'company-updates-for-linkedin' ),
+								'description' => __( 'Your LinkedIn App Client Secret.', 'company-updates-for-linkedin' ),
+								'placeholder' => __( 'Client Secret', 'company-updates-for-linkedin' )
 							),
 							'redirect-url' => array(
 								'type'        => 'redirect',
-								'title'       => __( 'Redirect URL', 'linkedin-company-updates' ),
-								'description' => __( 'Fully qualified URLs to define valid OAuth 2.0 callback paths, as defined in your LinkedIn App.', 'linkedin-company-updates' ),
-								'placeholder' => __( 'Redirect URL', 'linkedin-company-updates' )
+								'title'       => __( 'Redirect URL', 'company-updates-for-linkedin' ),
+								'description' => __( 'Fully qualified URLs to define valid OAuth 2.0 callback paths, as defined in your LinkedIn App.', 'company-updates-for-linkedin' ),
+								'placeholder' => __( 'Redirect URL', 'company-updates-for-linkedin' )
 							),
 							'access-token' => array(
 								'type'        => 'authorize',
-								'title'       => __( 'Access Token', 'linkedin-company-updates' ),
+								'title'       => __( 'Access Token', 'company-updates-for-linkedin' ),
 							),
 
 						),
@@ -103,39 +104,39 @@ if ( ! class_exists( 'Linkedin_Company_Updates' ) ) {
 
 					'feed' => array(
 
-						'title' => __('Feed Settings'),
+						'title' => __('Feed Settings', 'company-updates-for-linkedin'),
 
 						'settings' => array(
 
 							// plugin options
 							'company-id' => array(
 								'type'        => 'text',
-								'title'       => __( 'Company ID', 'linkedin-company-updates' ),
-								'description' => __( 'Your Default LinkedIn Company ID.', 'linkedin-company-updates' ),
+								'title'       => __( 'Company ID', 'company-updates-for-linkedin' ),
+								'description' => __( 'Your Default LinkedIn Company ID.', 'company-updates-for-linkedin' ),
 								'placeholder' => '',
 							),
 							'limit' => array(
 								'type'        => 'number',
-								'title'       => __( 'Limit', 'linkedin-company-updates' ),
-								'description' => __( 'If no amount is specified in the shortcode, then this amount will be used.', 'linkedin-company-updates' ),
+								'title'       => __( 'Limit', 'company-updates-for-linkedin' ),
+								'description' => __( 'If no amount is specified in the shortcode, then this amount will be used.', 'company-updates-for-linkedin' ),
 								'validator'   => 'numeric',
 								'placeholder' => 8,
 							),
 							'include-default-styling' => array(
 								'type'        => 'checkbox',
-								'title'       => __( 'Include Default Styling', 'linkedin-company-updates' ),
-								'description' => __( 'Checking this will include the plugin\'s default styling for the feed.', 'linkedin-company-updates' ),
+								'title'       => __( 'Include Default Styling', 'company-updates-for-linkedin' ),
+								'description' => __( 'Checking this will include the plugin\'s default styling for the feed.', 'company-updates-for-linkedin' ),
 							),
 							'update-items-container-class' => array(
 								'type'        => 'text',
-								'title'       => __( 'Update Items Container Class', 'linkedin-company-updates' ),
-								'description' => __( 'This class will be added to the container of the update items. Leave a space between each class.', 'linkedin-company-updates' ),
+								'title'       => __( 'Update Items Container Class', 'company-updates-for-linkedin' ),
+								'description' => __( 'This class will be added to the container of the update items. Leave a space between each class.', 'company-updates-for-linkedin' ),
 								'placeholder' => 'li-updates-container',
 							),
 							'update-item-class' => array(
 								'type'        => 'text',
-								'title'       => __( 'Update Item Class', 'linkedin-company-updates' ),
-								'description' => __( 'This class will be added to each update item. Leave a space between each class.', 'linkedin-company-updates' ),
+								'title'       => __( 'Update Item Class', 'company-updates-for-linkedin' ),
+								'description' => __( 'This class will be added to each update item. Leave a space between each class.', 'company-updates-for-linkedin' ),
 								'placeholder' => 'li-updates-card',
 							),
 
@@ -145,15 +146,15 @@ if ( ! class_exists( 'Linkedin_Company_Updates' ) ) {
 
 					'publish' => array(
 
-						'title' => __('Save Settings'),
+						'title' => __('Save Settings', 'company-updates-for-linkedin'),
 
 						'settings' => array(
 
 							// plugin options
 							'email-when-expired' => array(
 								'type'        => 'checkbox',
-								'title'       => __( 'Email when Expired', 'linkedin-company-updates' ),
-								'description' => __( 'Send email when auth code expires.', 'linkedin-company-updates' ),
+								'title'       => __( 'Email when Expired', 'company-updates-for-linkedin' ),
+								'description' => __( 'Send email when auth code expires.', 'company-updates-for-linkedin' ),
 							),
 
 						),
@@ -210,7 +211,7 @@ if ( ! class_exists( 'Linkedin_Company_Updates' ) ) {
 
 		public function load_textdomain() {
 
-			load_plugin_textdomain( 'linkedin-company-updates', false, dirname( plugin_basename(__FILE__) ) . '/lang/' );
+			load_plugin_textdomain( 'company-updates-for-linkedin', false, dirname( plugin_basename(__FILE__) ) . '/lang/' );
 
 		}
 
@@ -219,7 +220,7 @@ if ( ! class_exists( 'Linkedin_Company_Updates' ) ) {
 		 * @param   array Links for the plugin page
 		 */
 		public function add_plugin_links ( $links ) {
-			$links[] = '<a href="' . $this->admin_url . '">' . __( 'Settings', 'linkedin-company-updates' ) . '</a>';
+			$links[] = '<a href="' . $this->admin_url . '">' . __( 'Settings', 'company-updates-for-linkedin' ) . '</a>';
 			return $links;
 		}
 
@@ -227,7 +228,7 @@ if ( ! class_exists( 'Linkedin_Company_Updates' ) ) {
 		 * Setup the settings page for the plugin
 		 */
 		public function admin_menu() {
-			$title = __( 'Linkedin Company Updates', 'linkedin-company-updates' );
+			$title = __( 'Linkedin Company Updates', 'company-updates-for-linkedin' );
 			add_options_page( $title, $title, 'manage_options', $this->tag, array( $this, 'settings_page' ) );
 		}
 
@@ -235,8 +236,8 @@ if ( ! class_exists( 'Linkedin_Company_Updates' ) ) {
 		 * Enqueue javascript
 		 */
 		public function admin_enqueue_script() {
-			wp_enqueue_script( $this->tag . '_script', plugins_url( 'company-updates-for-linkedin/js/script.js' ), null, $this->version );
-			wp_enqueue_style( $this->tag . '_style', plugins_url( 'company-updates-for-linkedin/css/style-admin.css' ), null, $this->version );
+			wp_enqueue_script( $this->tag . '_script', plugins_url( 'js/script.js' ), null, $this->version );
+			wp_enqueue_style( $this->tag . '_style', plugins_url( 'css/style-admin.css' ), null, $this->version );
 		}
 
 		/**
@@ -343,7 +344,7 @@ if ( ! class_exists( 'Linkedin_Company_Updates' ) ) {
 
 				// redirect url
 				case 'redirect':
-					$string = __('Add this URL to your LinkedIn App\'s <i>Authorized Redirect URLs</i>:');
+					$string = __('Add this URL to your LinkedIn App\'s <i>Authorized Redirect URLs</i>:', 'company-updates-for-linkedin');
 
 					echo <<< HTML
 						<p>
@@ -411,7 +412,7 @@ break;
 			} else {
 
 				$authorize_string      = 'Authorize Me';
-				$authorization_message = '<p>' . __('You must authorize first to create a shortcode.') . '</p>';
+				$authorization_message = '<p>' . __('You must authorize first to create a shortcode.', 'company-updates-for-linkedin') . '</p>';
 
 			}
 
@@ -439,7 +440,7 @@ break;
 				$date->modify( '+' . $times['days'] . ' days' );
 
 				return sprintf(
-					__('Expires in %s days, %s hours ( <i>%s</i> ) '),
+					__('Expires in %s days, %s hours ( <i>%s</i> ) ', 'company-updates-for-linkedin'),
 					$times['days'],
 					$times['hours'],
 					$date->format('m / d / Y')
@@ -447,7 +448,7 @@ break;
 
 			} else {
 
-				return __('Authorization token has expired, please regenerate.');
+				return __('Authorization token has expired, please regenerate.', 'company-updates-for-linkedin');
 
 			}
 
@@ -476,7 +477,7 @@ break;
 			// if there's something wrong with the access token, say so
 			if( ! isset( $json['access_token'] ) || 5 >= strlen( $json['access_token'] ) ) {
 
-				$this->notification( __( 'Did not recieve an access token.', 'linkedin-company-updates' ) );
+				$this->notification( __( 'Did not recieve an access token.', 'company-updates-for-linkedin' ) );
 				return false;
 
 			}
@@ -520,7 +521,7 @@ break;
 
 			} else if ( isset( $_GET['new_token'] ) ) {
 
-				$this->notification( __( 'Your LinkedIn authorization token has been successfully updated!', 'linkedin-company-updates' ), 1 );
+				$this->notification( __( 'Your LinkedIn authorization token has been successfully updated!', 'company-updates-for-linkedin' ), 1 );
 
 			}
 
@@ -541,7 +542,7 @@ break;
 				$array_companies = $this->linkedin_api_call( '', 'values', array( 'is-company-admin' => 'true' ) );
 				if ( $array_companies ) {
 
-					echo '<span>' . __( 'Find Your Company ID : ', 'linkedin-company-updates' ) . '</span>';
+					echo '<span>' . __( 'Find Your Company ID : ', 'company-updates-for-linkedin' ) . '</span>';
 					echo '<select id="select-company" name="select-company" value="select-company">';
 
 					// add each company to the dropdown
@@ -550,22 +551,22 @@ break;
 					}
 
 					echo '</select>';
-					echo '<p><span><b>' . __( 'Use this shortcode: ', 'linkedin-company-updates' ) . '</b></span><input onClick="this.select();" type="text" id="' . $this->tag . '_shortcode" value="[li-company-updates limit=\'5\' company=\'' . $this->options['company-id'] . '\']"></p>';
+					echo '<p><span><b>' . __( 'Use this shortcode: ', 'company-updates-for-linkedin' ) . '</b></span><input onClick="this.select();" type="text" id="' . $this->tag . '_shortcode" value="[li-company-updates limit=\'5\' company=\'' . $this->options['company-id'] . '\']"></p>';
 					echo sprintf(
-						__( '<p><span>Use shortcode %s to put the feed into content. For further documentation of shortcodes, go <a target="_blank" href="%s">Here.</a></span></p>', 'linkedin-company-updates' ),
+						__( '<p><span>Use shortcode %s to put the feed into content. For further documentation of shortcodes, go <a target="_blank" href="%s">Here.</a></span></p>', 'company-updates-for-linkedin' ),
 						'[li-company-updates]',
 						'http://www.rockwellgrowth.com/linkedin-company-updates/'
 					);
 
 				// tell the user if no companies were retrieved
 				} else {
-					echo '<b>' . __( 'No companies retrieved! Make sure you\'re the owner of the company via LinkedIn', 'linkedin-company-updates' ) . '</b>';
+					echo '<b>' . __( 'No companies retrieved! Make sure you\'re the owner of the company via LinkedIn', 'company-updates-for-linkedin' ) . '</b>';
 
 				}
 
 			// notify unauthorized users
 			} else {
-				echo '<p>' . __( 'Need to authorize first', 'linkedin-company-updates' ) . '</p>';
+				echo '<p>' . __( 'Need to authorize first', 'company-updates-for-linkedin' ) . '</p>';
 
 			}
 
@@ -594,13 +595,13 @@ break;
 				$this->Options_Metaboxes->add_settings_metabox( $slug, $meta_box['title'], false );
 			}
 			$inside = '<input type="checkbox" />Send email when auth code expires';
-			$this->Options_Metaboxes->add_publish_metabox( __( 'Save Settings', 'linkedin-company-updates' ), $this->Options_Metaboxes->get_settings_html('publish') );
-			$this->Options_Metaboxes->add_metabox( 'shortcode-info', __( 'Shortcode Info', 'linkedin-company-updates' ), true, $this->helper_info() );
+			$this->Options_Metaboxes->add_publish_metabox( __( 'Save Settings', 'company-updates-for-linkedin' ), $this->Options_Metaboxes->get_settings_html('publish') );
+			$this->Options_Metaboxes->add_metabox( 'shortcode-info', __( 'Shortcode Info', 'company-updates-for-linkedin' ), true, $this->helper_info() );
 
 		    ?>
 
 				<div class='wrap'>
-					<h2><?php _e( 'LinkedIn Company Updates', 'linkedin-company-updates' ); ?></h2>
+					<h2><?php _e( 'LinkedIn Company Updates', 'company-updates-for-linkedin' ); ?></h2>
 					<form method='post' id="poststuff" action='options.php'>
 						<?php $this->Options_Metaboxes->output(); ?>
 					</form>
@@ -615,9 +616,9 @@ break;
 		public function email_admin() {
 
 			$email   = get_bloginfo('admin_email');
-			$subject = __( 'Linkedin Company Updates - Authorization code expired', 'linkedin-company-updates' );
+			$subject = __( 'Linkedin Company Updates - Authorization code expired', 'company-updates-for-linkedin' );
 			$message = sprintf(
-				__( 'Please regenerate your authorization code <a href="%s">Here</a>', 'linkedin-company-updates' ),
+				__( 'Please regenerate your authorization code <a href="%s">Here</a>', 'company-updates-for-linkedin' ),
 				$this->admin_url
 			);
 
@@ -646,7 +647,7 @@ HTML;
 		public function regenerate_notification() {
 
 			$string = sprintf(
-				__( '<b>Linkedin Company Updates</b> - no valid access token found, your Linkedin feed will not display. Generate a new one <a href="%s">here</a>', 'linkedin-company-updates' ),
+				__( '<b>Linkedin Company Updates</b> - no valid access token found, your Linkedin feed will not display. Generate a new one <a href="%s">here</a>', 'company-updates-for-linkedin' ),
 				$this->admin_url
 			);
 
@@ -706,7 +707,7 @@ HTML;
 	 		$url = 'https://api.linkedin.com/v1/companies/' . $path . '?' . http_build_query( array_merge( $default_params, $params ) );
 
 	 		// get the json
-			$json = $this->get_remote_json( $url, __( 'Failed to make request for access token.', 'linkedin-company-updates' ) );
+			$json = $this->get_remote_json( $url, __( 'Failed to make request for access token.', 'company-updates-for-linkedin' ) );
 
 			// check for undesirable results
 			if ( false === $json || ! isset( $json[ $key ] ) || empty( $json[ $key ] ) ) {
@@ -725,7 +726,7 @@ HTML;
 			// only enqueue if the user wants it to be
 			if ( isset( $this->options['include-default-styling'] ) && $this->options['include-default-styling'] ) {
 
-				wp_enqueue_style( 'company_updates_style', plugins_url( 'company-updates-for-linkedin/css/style.css' ), null, $this->version );
+				wp_enqueue_style( 'company_updates_style', plugins_url( 'css/style.css', __FILE__ ), null, $this->version );
 
 			}
 
@@ -743,11 +744,11 @@ HTML;
 			$months       = $d1->diff( $d2 )->m;
 			$days         = $d1->diff( $d2 )->d;
 
-			$month_string = $months . ' ' . __('Months');
-			$days_string  = ( 1 === $days ) ? $days . ' ' . __('Day') : $days . ' ' . __('Days');
+			$month_string = $months . ' ' . __('Months', 'company-updates-for-linkedin');
+			$days_string  = ( 1 === $days ) ? $days . ' ' . __('Day', 'company-updates-for-linkedin') : $days . ' ' . __('Days', 'company-updates-for-linkedin');
 
 			if ( 0 == $d1->diff( $d2 )->days ) {
-				$time_ago = __('Today');
+				$time_ago = __('Today', 'company-updates-for-linkedin');
 			} elseif ( isset( $months ) && $months > 0 ) {
 				$time_ago = $month_string;
 				if ( isset( $days ) && $days > 0 ) {
@@ -757,7 +758,7 @@ HTML;
 				$time_ago = $days_string;
 			}
 
-			return $time_ago . ' ' . __('Ago');
+			return $time_ago . ' ' . __('Ago', 'company-updates-for-linkedin');
 
 		}
 
@@ -783,12 +784,12 @@ HTML;
 		    if ( $this->token_life ) {
 
 		    	// make some linkedin api calls
-				$array_updates = $this->linkedin_api_call( $company_id . '/updates', 'values', array( 'count' => $args['limit'] ) );
+				$array_updates = $this->linkedin_api_call( $company_id . '/updates', 'values', array( 'count' => $args['limit'], 'event-type' => 'status-update' ) );
 				$logo_url      = $this->linkedin_api_call( $company_id . ':(id,name,ticker,description,square-logo-url)', 'squareLogoUrl', array() );
 
 				// Build the list of updates
 				$company_updates = '<ul id="linkedin-con" class="' . $args['con_class'] . '">';
-				$company_updates .= '	<h2><img src="' . plugins_url( 'img/linkedin-logo.gif', __FILE__ ) . '" />' . __( 'LinkedIn Company Updates', 'linkedin-company-updates' ) . '</h2>';
+				$company_updates .= '	<h2><img src="' . plugins_url( 'img/linkedin-logo.gif', __FILE__ ) . '" />' . __( 'LinkedIn Company Updates', 'company-updates-for-linkedin' ) . '</h2>';
 				if ( $array_updates ) {
 					foreach ($array_updates as $update) {
 
@@ -826,7 +827,7 @@ HTML;
 						$company_updates .= 	'<img class="linkedin-update-logo" src="' . $logo_url . '" />';
 						$company_updates .= 	'<span>';
 						$company_updates .= 		'<i>' . $time_ago . '</i>';
-						$company_updates .= 		'<a target="_blank" href="' . $update_url . '">' . __( 'view on linkedin', 'linkedin-company-updates' ) . '</a>';
+						$company_updates .= 		'<a target="_blank" href="' . $update_url . '">' . __( 'view on linkedin', 'company-updates-for-linkedin' ) . '</a>';
 						$company_updates .= 	'</span>';
 						$company_updates .= 	'<div>';
 						$company_updates .= 		$img;
@@ -836,7 +837,7 @@ HTML;
 						$company_updates .= '</li>';
 					}
 				} else {
-					$company_updates .= '<li>' . __( 'Sorry, no posts were received from LinkedIn!', 'linkedin-company-updates' ) . '</li>';
+					$company_updates .= '<li>' . __( 'Sorry, no posts were received from LinkedIn!', 'company-updates-for-linkedin' ) . '</li>';
 				}
 				$company_updates .= '</ul>';
 

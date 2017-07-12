@@ -3,7 +3,7 @@ Contributors: rockwell15
 Tags: linkedin,company,update,updates,feed,news,recent,latest,posts
 Requires at least: 3.5
 Tested up to: 4.7
-Stable tag: 1.5
+Stable tag: 1.5.3
 License: GPLv2
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
