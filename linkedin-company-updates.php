@@ -827,7 +827,7 @@ HTML;
 						$company_updates .= 	'<img class="linkedin-update-logo" src="' . $logo_url . '" />';
 						$company_updates .= 	'<span>';
 						$company_updates .= 		'<h3><a target="_blank" href="https://www.linkedin.com/company/' . $this->options['company-id'] . '">' . $update['updateContent']['company']['name'] . '</a></h3>';
-						$company_updates .= 		'<a target="_blank" href="' . $update_url . '">' . __( 'view on linkedin', 'company-updates-for-linkedin' ) . '</a>';
+						$company_updates .= 		'<a target="_blank" href="' . $update_url . '">' . __( 'voir sur linkedin', 'company-updates-for-linkedin' ) . '</a>';
 						$company_updates .= 	'</span>';
 						$company_updates .= 	'<div>';
 						$company_updates .= 		$img;
