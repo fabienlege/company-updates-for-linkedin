@@ -789,7 +789,7 @@ HTML;
 
 				// Build the list of updates
 				$company_updates = '<ul id="linkedin-con" class="' . $args['con_class'] . '">';
-				$company_updates .= '	<h2>' .get_bloginfo('name') .' '. __( 'sur LinkedIn', 'company-updates-for-linkedin' ) . '</h2>';
+				$company_updates .= '	<h2>' .get_bloginfo('name') .' '. __( 'sur LinkedIn', 'company-updates-for-linkedin' ) . '</h2>';&
 				if ( $array_updates ) {
 					foreach ($array_updates as $update) {
 
@@ -826,12 +826,11 @@ HTML;
 						$company_updates .= '<li id="linkedin-item" class="' . $args['item_class'] . '">';
 						$company_updates .= 	'<img class="linkedin-update-logo" src="' . $logo_url . '" />';
 						$company_updates .= 	'<span>';
-						$company_updates .= 		'<i>' . $time_ago . '</i>';
+						$company_updates .= 		'<h3><a target="_blank" href="https://www.linkedin.com/company/' . $this->options['company-id'] . '">' . $update['updateContent']['company']['name'] . '</a></h3>';
 						$company_updates .= 		'<a target="_blank" href="' . $update_url . '">' . __( 'view on linkedin', 'company-updates-for-linkedin' ) . '</a>';
 						$company_updates .= 	'</span>';
 						$company_updates .= 	'<div>';
 						$company_updates .= 		$img;
-						$company_updates .= 		'<h3><a target="_blank" href="https://www.linkedin.com/company/' . $this->options['company-id'] . '">' . $update['updateContent']['company']['name'] . '</a></h3>';
 						$company_updates .= 		'<p>' . $update_content . '</p>';
 						$company_updates .= 	'</div>';
 						$company_updates .= '</li>';

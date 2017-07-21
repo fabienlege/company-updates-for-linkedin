@@ -1,11 +1,11 @@
 
 /*---- Default style - object container */
-ul#linkedin-con { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); background: #c8c8c8; margin: 0; width: 100%; padding: 20px; font-size: 14px; }
-ul#linkedin-con h2 { padding: 15px 20px; background: -webkit-linear-gradient(top, #696969 0%, #3f3f3f 100%); background: linear-gradient(to bottom, #696969 0%, #3f3f3f 100%); color: white; margin: -20px -20px 20px; font-weight: 300; font-family: helvetica; font-size: 14px; }
+ul#linkedin-con {margin: 0; width: 100%; font-size: 14px; }
+ul#linkedin-con h2 {font-size: 27px;line-height: 36px;font-weight: 300;border-bottom: 1px solid rgba(15,70,100,.12);padding: 10px;margin:0 0 15px; border-top:none; text-transform:none;}
 ul#linkedin-con h2 img { width: 16px; height: 16px; margin-right: 10px; -webkit-clip-path: inset(1px 0 1px 1px); border-radius: 3px; vertical-align: baseline; margin-bottom: -3px; }
 
 /*---- Default style - object item */
-ul#linkedin-con #linkedin-item { padding-top: 0; border: solid 1px #969696; list-style: none; margin: 0 0 20px; position: relative; background: white; }
+ul#linkedin-con #linkedin-item { padding-top: 0; list-style: none; margin: 0 0 20px; position: relative; }
 ul#linkedin-con #linkedin-item img.linkedin-update-logo { display: none !important; }
 ul#linkedin-con #linkedin-item div { padding: 15px; }
 ul#linkedin-con #linkedin-item div:after { content: ''; display: table; clear: both; }
